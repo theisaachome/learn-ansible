@@ -1,3 +1,5 @@
+
+
 ## Create Inventory and Configuration Files
 To manage nodes with Ansible, you need to create and inventory file that lists the nodes you want to manage, and a configuration file to specify settings for Ansible.
 
