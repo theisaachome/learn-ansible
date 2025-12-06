@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: update repository index for Ubuntu
+      apt:
+        update_cache: yes
+      when: ansible_distritution_version == "Ubuntu"
+    - name: install apache2 and php packages for Ubuntu
+      apt:
+        name:
+          - apache2
+          - libapache2-mod-php
+        state: latest
+      when: ansible_distritution == "Ubuntu"
+    
+    - name: update repository index for CentOS
+      dnf:
+        update_cache: yes
+      when: ansible_distritution_version == "CentOS"
+
+    - name: install httpd and php packages for CentOS
+      dnf:
+        name:
+          - httpd
+          - php
+        state: latest
+      when: ansible_distritution == "CentOS"
